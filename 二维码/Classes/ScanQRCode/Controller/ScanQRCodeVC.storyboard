@@ -16,14 +16,55 @@
                     <view key="view" contentMode="scaleToFill" id="PMF-hY-91A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vmz-zX-bTB">
+                                <rect key="frame" x="88" y="164" width="200" height="200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-Om-rVp">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="rbB-RF-ZKs">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rbB-RF-ZKs" secondAttribute="bottom" id="8qB-U2-31O"/>
+                                    <constraint firstAttribute="height" constant="200" id="9KO-LC-N96"/>
+                                    <constraint firstAttribute="trailing" secondItem="fM5-Om-rVp" secondAttribute="trailing" id="AOQ-cW-Hag"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="LvN-nt-4Hi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="UrC-cJ-AeY"/>
+                                    <constraint firstItem="fM5-Om-rVp" firstAttribute="leading" secondItem="Vmz-zX-bTB" secondAttribute="leading" id="Wgn-M9-gv1"/>
+                                    <constraint firstItem="rbB-RF-ZKs" firstAttribute="width" secondItem="Vmz-zX-bTB" secondAttribute="width" id="Ynh-Tc-Uhj"/>
+                                    <constraint firstItem="rbB-RF-ZKs" firstAttribute="height" secondItem="Vmz-zX-bTB" secondAttribute="height" id="coj-ip-okU"/>
+                                    <constraint firstItem="fM5-Om-rVp" firstAttribute="top" secondItem="Vmz-zX-bTB" secondAttribute="top" id="heF-XX-dAN"/>
+                                    <constraint firstAttribute="bottom" secondItem="fM5-Om-rVp" secondAttribute="bottom" id="o72-Vc-2z1"/>
+                                    <constraint firstItem="rbB-RF-ZKs" firstAttribute="leading" secondItem="Vmz-zX-bTB" secondAttribute="leading" id="rZj-hj-ccV"/>
+                                    <constraint firstAttribute="width" constant="200" id="xnN-6N-mYH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vmz-zX-bTB" firstAttribute="top" secondItem="lgC-Ig-NpD" secondAttribute="bottom" constant="100" id="Nd4-Wg-1NR"/>
+                            <constraint firstItem="Vmz-zX-bTB" firstAttribute="centerX" secondItem="PMF-hY-91A" secondAttribute="centerX" id="jAr-7D-IW6"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="chongjiboImageView" destination="rbB-RF-ZKs" id="3Kn-vh-jsJ"/>
+                        <outlet property="scanBackView" destination="Vmz-zX-bTB" id="xQW-iC-8XU"/>
+                        <outlet property="toBottom" destination="8qB-U2-31O" id="hcX-J8-yOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yny-0P-sPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609.5" y="1354.5"/>
+            <point key="canvasLocation" x="1327.5" y="1402.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="qrcode_border" width="51" height="51"/>
+        <image name="qrcode_scanline_qrcode" width="218" height="170"/>
+    </resources>
 </document>
