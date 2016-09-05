@@ -9,13 +9,37 @@
 #import "DetectorQRCodeVC.h"
 #import <CoreImage/CoreImage.h>
 
-@interface DetectorQRCodeVC ()
+@interface DetectorQRCodeVC ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *souceImageView;
+
+@property (nonatomic, strong) UIImage *souceImage;
 
 @end
 
 @implementation DetectorQRCodeVC
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.souceImage = self.souceImageView.image;
+    
+    // 添加长按手势识别二维码
+    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTapAction:)];
+    [self.souceImageView addGestureRecognizer:gesture];
+    self.souceImageView.userInteractionEnabled = YES;
+}
+//恢复到原始图片
+- (IBAction)reset {
+    self.souceImageView.image = self.souceImage;
+}
+- (void)longTapAction:(UILongPressGestureRecognizer *)longPress{
+    //长按手势添加后总是调用两次的方法处理
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        [self detectQRCode];
+    }
+}
 - (IBAction)detectQRCode {
+    
     // 1.获取需要识别的图片
     UIImage *image = self.souceImageView.image;
 //    CIImage *imageCI = image.CIImage;//这样得到的imageCI是nil
@@ -37,11 +61,19 @@
     self.souceImageView.image = resultImage;
     NSLog(@"%@", result);
     // 将识别的文字弹窗显示
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"结果" message:result.description delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"结果" message:result.description delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
     
 }
 
+/**
+ *  讲识别的二维码的边框画入原始图片中生成新的图片
+ *
+ *  @param image   原始图片
+ *  @param feature 识别的特征
+ *
+ *  @return 带识别边框的图片
+ */
 - (UIImage *)drawFrame:(UIImage *)image feature:(CIQRCodeFeature *)feature
 {
     CGSize size = image.size;
@@ -56,7 +88,7 @@
     // 3.绘制路径
     CGRect bounds = feature.bounds;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:bounds];
-    [path setLineWidth:2];
+    [path setLineWidth:5];
     [[UIColor redColor] setStroke];
     [path stroke];
     // 4.取出结果图片
@@ -67,4 +99,9 @@
     return resultImage;
 }
 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+    }
+}
 @end
