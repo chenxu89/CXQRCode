@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		2D8BF34A1D7D0848005306FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF3491D7D0848005306FF /* main.m */; };
 		2D8BF34D1D7D0848005306FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF34C1D7D0848005306FF /* AppDelegate.m */; };
-		2D8BF3501D7D0848005306FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF34F1D7D0848005306FF /* ViewController.m */; };
 		2D8BF3531D7D0848005306FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3511D7D0848005306FF /* Main.storyboard */; };
 		2D8BF3551D7D0848005306FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3541D7D0848005306FF /* Assets.xcassets */; };
 		2D8BF3581D7D0848005306FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3561D7D0848005306FF /* LaunchScreen.storyboard */; };
 		2D8BF3631D7D0848005306FF /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF3621D7D0848005306FF /* ___Tests.m */; };
 		2D8BF36E1D7D0848005306FF /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF36D1D7D0848005306FF /* ___UITests.m */; };
+		2D8BF38E1D7D0B2C005306FF /* GeneratorQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF38D1D7D0B2C005306FF /* GeneratorQRCodeVC.m */; };
+		2D8BF3911D7D0B54005306FF /* DetectorQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF3901D7D0B54005306FF /* DetectorQRCodeVC.m */; };
+		2D8BF3941D7D0B64005306FF /* ScanQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF3931D7D0B64005306FF /* ScanQRCodeVC.m */; };
+		2D8BF3961D7D0DF7005306FF /* GeneratorQRCodeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3951D7D0DF7005306FF /* GeneratorQRCodeVC.storyboard */; };
+		2D8BF3981D7D0E28005306FF /* DetectorQRCodeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3971D7D0E28005306FF /* DetectorQRCodeVC.storyboard */; };
+		2D8BF39A1D7D0E3A005306FF /* ScanQRCodeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3991D7D0E3A005306FF /* ScanQRCodeVC.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +44,6 @@
 		2D8BF3491D7D0848005306FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D8BF34B1D7D0848005306FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D8BF34C1D7D0848005306FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D8BF34E1D7D0848005306FF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2D8BF34F1D7D0848005306FF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2D8BF3521D7D0848005306FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D8BF3541D7D0848005306FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D8BF3571D7D0848005306FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,15 @@
 		2D8BF3691D7D0848005306FF /* 二维码UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "二维码UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8BF36D1D7D0848005306FF /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
 		2D8BF36F1D7D0848005306FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D8BF38C1D7D0B2C005306FF /* GeneratorQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratorQRCodeVC.h; sourceTree = "<group>"; };
+		2D8BF38D1D7D0B2C005306FF /* GeneratorQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratorQRCodeVC.m; sourceTree = "<group>"; };
+		2D8BF38F1D7D0B54005306FF /* DetectorQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectorQRCodeVC.h; sourceTree = "<group>"; };
+		2D8BF3901D7D0B54005306FF /* DetectorQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectorQRCodeVC.m; sourceTree = "<group>"; };
+		2D8BF3921D7D0B64005306FF /* ScanQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeVC.h; sourceTree = "<group>"; };
+		2D8BF3931D7D0B64005306FF /* ScanQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeVC.m; sourceTree = "<group>"; };
+		2D8BF3951D7D0DF7005306FF /* GeneratorQRCodeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GeneratorQRCodeVC.storyboard; sourceTree = "<group>"; };
+		2D8BF3971D7D0E28005306FF /* DetectorQRCodeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetectorQRCodeVC.storyboard; sourceTree = "<group>"; };
+		2D8BF3991D7D0E3A005306FF /* ScanQRCodeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanQRCodeVC.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +115,7 @@
 			children = (
 				2D8BF34B1D7D0848005306FF /* AppDelegate.h */,
 				2D8BF34C1D7D0848005306FF /* AppDelegate.m */,
-				2D8BF34E1D7D0848005306FF /* ViewController.h */,
-				2D8BF34F1D7D0848005306FF /* ViewController.m */,
+				2D8BF37F1D7D0B07005306FF /* Classes */,
 				2D8BF3511D7D0848005306FF /* Main.storyboard */,
 				2D8BF3541D7D0848005306FF /* Assets.xcassets */,
 				2D8BF3561D7D0848005306FF /* LaunchScreen.storyboard */,
@@ -138,6 +149,118 @@
 				2D8BF36F1D7D0848005306FF /* Info.plist */,
 			);
 			path = "二维码UITests";
+			sourceTree = "<group>";
+		};
+		2D8BF37F1D7D0B07005306FF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF3841D7D0B07005306FF /* GeneratorQRCode */,
+				2D8BF3801D7D0B07005306FF /* DetectorQRCode */,
+				2D8BF3881D7D0B07005306FF /* ScanQRCode */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2D8BF3801D7D0B07005306FF /* DetectorQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF3811D7D0B07005306FF /* Controller */,
+				2D8BF3821D7D0B07005306FF /* Model */,
+				2D8BF3831D7D0B07005306FF /* View */,
+			);
+			path = DetectorQRCode;
+			sourceTree = "<group>";
+		};
+		2D8BF3811D7D0B07005306FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF38F1D7D0B54005306FF /* DetectorQRCodeVC.h */,
+				2D8BF3901D7D0B54005306FF /* DetectorQRCodeVC.m */,
+				2D8BF3971D7D0E28005306FF /* DetectorQRCodeVC.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D8BF3821D7D0B07005306FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D8BF3831D7D0B07005306FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D8BF3841D7D0B07005306FF /* GeneratorQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF3851D7D0B07005306FF /* Controller */,
+				2D8BF3861D7D0B07005306FF /* Model */,
+				2D8BF3871D7D0B07005306FF /* View */,
+			);
+			path = GeneratorQRCode;
+			sourceTree = "<group>";
+		};
+		2D8BF3851D7D0B07005306FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF38C1D7D0B2C005306FF /* GeneratorQRCodeVC.h */,
+				2D8BF38D1D7D0B2C005306FF /* GeneratorQRCodeVC.m */,
+				2D8BF3951D7D0DF7005306FF /* GeneratorQRCodeVC.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D8BF3861D7D0B07005306FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D8BF3871D7D0B07005306FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D8BF3881D7D0B07005306FF /* ScanQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF3891D7D0B07005306FF /* Controller */,
+				2D8BF38A1D7D0B07005306FF /* Model */,
+				2D8BF38B1D7D0B07005306FF /* View */,
+			);
+			path = ScanQRCode;
+			sourceTree = "<group>";
+		};
+		2D8BF3891D7D0B07005306FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BF3921D7D0B64005306FF /* ScanQRCodeVC.h */,
+				2D8BF3931D7D0B64005306FF /* ScanQRCodeVC.m */,
+				2D8BF3991D7D0E3A005306FF /* ScanQRCodeVC.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D8BF38A1D7D0B07005306FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D8BF38B1D7D0B07005306FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +367,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D8BF3581D7D0848005306FF /* LaunchScreen.storyboard in Resources */,
+				2D8BF3961D7D0DF7005306FF /* GeneratorQRCodeVC.storyboard in Resources */,
 				2D8BF3551D7D0848005306FF /* Assets.xcassets in Resources */,
+				2D8BF3981D7D0E28005306FF /* DetectorQRCodeVC.storyboard in Resources */,
+				2D8BF39A1D7D0E3A005306FF /* ScanQRCodeVC.storyboard in Resources */,
 				2D8BF3531D7D0848005306FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,8 +396,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D8BF3501D7D0848005306FF /* ViewController.m in Sources */,
 				2D8BF34D1D7D0848005306FF /* AppDelegate.m in Sources */,
+				2D8BF3941D7D0B64005306FF /* ScanQRCodeVC.m in Sources */,
+				2D8BF38E1D7D0B2C005306FF /* GeneratorQRCodeVC.m in Sources */,
+				2D8BF3911D7D0B54005306FF /* DetectorQRCodeVC.m in Sources */,
 				2D8BF34A1D7D0848005306FF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

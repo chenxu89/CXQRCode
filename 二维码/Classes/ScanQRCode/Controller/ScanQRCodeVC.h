@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ScanQRCodeVC.h
 //  二维码
 //
 //  Created by chenxu on 16/9/5.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ScanQRCodeVC : UIViewController
 
 @end
-
