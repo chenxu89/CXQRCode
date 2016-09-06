@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *scanBackView;
 @property (weak, nonatomic) IBOutlet UIImageView *chongjiboImageView;
 
+@property (nonatomic, weak) AVCaptureVideoPreviewLayer *layer;
 @property (nonatomic, strong) AVCaptureSession *session;
 @end
 
@@ -55,6 +56,7 @@
     // 3.2添加视频预览图层(让用户可以看到界面）
     AVCaptureVideoPreviewLayer *layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
     layer.frame = self.view.layer.bounds;
+    self.layer = layer;
 //    [self.view.layer addSublayer:layer];
     [self.view.layer insertSublayer:layer atIndex:0];
     // 4. 启动会话（让输入对象开始采集数据，输出对象开始处理数据）
@@ -84,7 +86,73 @@
     self.chongjiboImageView.hidden = YES;
 }
 #pragma mark --- AVCaptureMetadataOutputObjectsDelegate ---
+// 扫描到结果之后调用
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-    NSLog(@"test");
+//    NSLog(@"test");
+//    NSLog(@"%@", metadataObjects);
+    if (metadataObjects == nil || [metadataObjects count] <= 0) return;
+    
+    [self removeFrameLayer];
+    
+    for (NSObject *obj in metadataObjects) {
+        if ([obj isKindOfClass:[AVMetadataMachineReadableCodeObject class]]) {
+            // 转换成为, 二维码, 在预览图层上的真正坐标
+            // qrCodeObj.corners 代表二维码的四个角, 需要借助视频预览图层转换成为我们需要的可以用的坐标
+            AVMetadataObject *resultObj = [self.layer transformedMetadataObjectForMetadataObject:(AVMetadataObject *)obj];
+            AVMetadataMachineReadableCodeObject *qrCodeObj = (AVMetadataMachineReadableCodeObject *)resultObj;
+//            NSLog(@"%@", qrCodeObj.stringValue);
+//            NSLog(@"%@", qrCodeObj.corners);
+            [self drawFrame:qrCodeObj];
+        }
+    }
+}
+
+- (void)drawFrame:(AVMetadataMachineReadableCodeObject *)qrCodeObj
+{
+    
+    NSArray *corners = qrCodeObj.corners;
+    
+    // 1. 借助一个图形层来绘制
+    CAShapeLayer *shapLayer = [[CAShapeLayer alloc] init];
+    shapLayer.fillColor = [UIColor clearColor].CGColor;
+    shapLayer.strokeColor = [UIColor redColor].CGColor;
+    shapLayer.lineWidth = 6;
+    
+    // 2. 根据四个点创建一个路径
+    UIBezierPath *path = [[UIBezierPath alloc] init];
+    NSInteger index = 0;
+    for (NSDictionary *corner in corners)
+    {
+        CFDictionaryRef pointDic = (__bridge CFDictionaryRef)corner;
+        CGPoint point = CGPointZero;
+        CGPointMakeWithDictionaryRepresentation(pointDic, &point);
+        
+        if (index == 0) {// 第一个点
+            [path moveToPoint:point];
+        }else {
+            [path addLineToPoint:point];
+        }
+        index += 1;
+    }
+    
+    [path closePath];
+    
+    // 3. 给图形图层的路径赋值, 代表图层展示怎样的形状
+    shapLayer.path = path.CGPath;
+    
+    // 4. 直接添加图形图层到需要展示的图层
+    [self.layer addSublayer:shapLayer];
+}
+
+- (void)removeFrameLayer
+{
+    if (self.layer.sublayers == nil) return;
+//    NSArray *subLayers = self.layer.sublayers;//这样是错误的，不能一边遍历数组，一边删除数组中的元素，一定要生成一个副本来遍历
+    NSArray *subLayers = [NSArray arrayWithArray:self.layer.sublayers];
+    [subLayers enumerateObjectsUsingBlock:^(id  _Nonnull subLayer, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([subLayer isKindOfClass:[CAShapeLayer class]]) {
+            [subLayer removeFromSuperlayer];
+        }
+    }];
 }
 @end
