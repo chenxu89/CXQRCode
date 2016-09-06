@@ -53,6 +53,17 @@
     // output.availableMetadataObjectTypes 或者 AVMetadataObjectTypeQRCode
     output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
     
+    // 设置扫描 的兴趣区域
+    // metadataoutputs坐标系 CGRectMake(0, 0, 1, 1)  取值范围：0.0 - 1.0
+    // metadataoutputs坐标系 以右上角为0 0 类似于横屏，x和y互换，宽高互换
+    // 需要把previewlayer坐标系中的rect转为metadataoutputs坐标系中的rect ，下面有两种方法
+    // 法一：自己计算
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    CGFloat x = self.scanBackView.frame.origin.x / bounds.size.width;
+    CGFloat y = self.scanBackView.frame.origin.y / bounds.size.height;
+    CGFloat width = self.scanBackView.frame.size.width / bounds.size.width;
+    CGFloat height = self.scanBackView.frame.size.height / bounds.size.height;
+    output.rectOfInterest = CGRectMake(y, x, height, width);
     // 3.2添加视频预览图层(让用户可以看到界面）
     AVCaptureVideoPreviewLayer *layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
     layer.frame = self.view.layer.bounds;
@@ -61,6 +72,9 @@
     [self.view.layer insertSublayer:layer atIndex:0];
     // 4. 启动会话（让输入对象开始采集数据，输出对象开始处理数据）
     [session startRunning];
+    
+    // 法二：用AVCaptureVideoPreviewLayer的方法，且必须要放在[session startRunning];方法之后才有效
+//    output.rectOfInterest = [layer metadataOutputRectOfInterestForRect:self.scanBackView.frame];
     
 }
 
