@@ -19,17 +19,25 @@
 
 @implementation ScanQRCodeVC
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self startScan];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    [self startScan];
+//    [self startScan];//放到这里，会导致屏幕闪一下，应该放到viewWillAppear中
+    [self startScanAnimation];
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     
-//    [self stopScan];
+    [self stopScan];
 }
 - (void)startScan{
+    
     [[QRCodeTool sharedQRCodeTool] scanQRCode:self.view isDrawQRCodeFrame:NO interestRect:self.scanBackView.frame completion:^(NSArray *resultStrs) {
         NSLog(@"%@", resultStrs);
         if (resultStrs.count <= 0) {
@@ -43,8 +51,6 @@
         //停止扫描
         [self stopScan];
     }];
-    
-    [self startScanAnimation];
 }
 
 - (void)stopScan{
