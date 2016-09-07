@@ -64,7 +64,7 @@
     [self.view layoutIfNeeded];
     self.toBottom.constant = 0;
 
-    [UIView animateWithDuration:1.3 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
         [UIView setAnimationRepeatCount:MAXFLOAT];
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {

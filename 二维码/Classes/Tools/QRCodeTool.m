@@ -153,6 +153,8 @@ single_implementation(QRCodeTool)
     if (sublayers == nil || ![sublayers containsObject:self.layer]) {
         self.layer.frame = inView.layer.bounds;
         [inView.layer insertSublayer:self.layer atIndex:0];
+        // 添加扫描区四周的四个半透明灰色图层
+        [self addCornerLayersToView:inView centerRect:interestRect];
     }
     // 4. 启动会话（让输入对象开始采集数据，输出对象开始处理数据）
     [self.session startRunning];
@@ -160,10 +162,52 @@ single_implementation(QRCodeTool)
     // 法二：用AVCaptureVideoPreviewLayer的方法，且必须要放在[session startRunning];方法之后才有效
     //    output.rectOfInterest = [layer metadataOutputRectOfInterestForRect:self.scanBackView.frame];
 }
+#pragma mark - 私有方法 -
 - (void)stopScanQRCode{
     [self.session stopRunning];
 }
-#pragma mark - 私有方法 -
+/**
+ *  添加扫描区四周的四个半透明灰色图层
+ *
+ *  @param toView     添加到的view
+ *  @param centerRect 中心扫描区的frame
+ */
+- (void)addCornerLayersToView:(UIView *)toView centerRect:(CGRect)centerRect{
+    
+    UIColor *color = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    CALayer *tolayer = toView.layer;
+    
+    CGFloat x = centerRect.origin.x;
+    CGFloat y = centerRect.origin.y;
+    CGFloat w = centerRect.size.width;
+    CGFloat h = centerRect.size.height;
+    CGFloat viewW = toView.frame.size.width;
+    CGFloat viewH = toView.frame.size.height;
+    //上
+    CALayer *topLayer = [CALayer layer];
+    topLayer.backgroundColor = color.CGColor;
+    CGRect rect = CGRectMake(0, 0, viewW, y);
+    topLayer.frame = rect;
+    [tolayer addSublayer:topLayer];
+    //下
+    CALayer *bottomLayer = [CALayer layer];
+    bottomLayer.backgroundColor = color.CGColor;
+    rect = CGRectMake(0, y+h, viewW, viewH-y-h);
+    bottomLayer.frame = rect;
+    [tolayer addSublayer:bottomLayer];
+    //左
+    CALayer *leftLayer = [CALayer layer];
+    leftLayer.backgroundColor = color.CGColor;
+    rect = CGRectMake(0, y, x, h);
+    leftLayer.frame = rect;
+    [tolayer addSublayer:leftLayer];
+    //右
+    CALayer *rightLayer = [CALayer layer];
+    rightLayer.backgroundColor = color.CGColor;
+    rect = CGRectMake(x+w, y, viewW-x-w, h);
+    rightLayer.frame = rect;
+    [tolayer addSublayer:rightLayer];
+}
 /**
  *  给一个原始图片中心添加一个小图片
  *
