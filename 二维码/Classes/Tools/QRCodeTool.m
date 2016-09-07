@@ -160,6 +160,9 @@ single_implementation(QRCodeTool)
     // 法二：用AVCaptureVideoPreviewLayer的方法，且必须要放在[session startRunning];方法之后才有效
     //    output.rectOfInterest = [layer metadataOutputRectOfInterestForRect:self.scanBackView.frame];
 }
+- (void)stopScanQRCode{
+    [self.session stopRunning];
+}
 #pragma mark - 私有方法 -
 /**
  *  给一个原始图片中心添加一个小图片

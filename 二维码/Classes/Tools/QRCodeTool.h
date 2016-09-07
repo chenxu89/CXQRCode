@@ -44,4 +44,8 @@ single_interface(QRCodeTool)
  *  @param completion        扫描的结果处理block
  */
 - (void)scanQRCode:(UIView *)inView isDrawQRCodeFrame:(BOOL)isDrawQRCodeFrame interestRect:(CGRect)interestRect completion:(ScanCompletionBlock)completion;
+/**
+ *  停止扫描二维码
+ */
+- (void)stopScanQRCode;
 @end

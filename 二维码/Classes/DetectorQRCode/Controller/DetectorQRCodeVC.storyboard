@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--识别图片二维码-->
@@ -46,6 +47,15 @@
                                     <action selector="reset" destination="WxX-eL-xsI" eventType="touchUpInside" id="SKs-Ge-nWM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可长按图片识别" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeS-CN-i1E">
+                                <rect key="frame" x="16" y="79" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="MJK-pT-Olc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -53,8 +63,11 @@
                             <constraint firstItem="UkX-n7-BdE" firstAttribute="centerX" secondItem="Ck8-3b-QEZ" secondAttribute="centerX" id="EAa-bg-OsM"/>
                             <constraint firstItem="oJq-TV-33e" firstAttribute="centerX" secondItem="Ck8-3b-QEZ" secondAttribute="centerX" id="IwD-3b-Nu2"/>
                             <constraint firstItem="8Wj-Cp-Sa8" firstAttribute="top" secondItem="UkX-n7-BdE" secondAttribute="bottom" constant="27" id="ark-uX-4ZC"/>
+                            <constraint firstItem="SeS-CN-i1E" firstAttribute="leading" secondItem="Ck8-3b-QEZ" secondAttribute="leadingMargin" id="iCl-J3-wjv"/>
                             <constraint firstItem="8Wj-Cp-Sa8" firstAttribute="centerX" secondItem="Ck8-3b-QEZ" secondAttribute="centerX" id="joo-xd-Idb"/>
                             <constraint firstItem="oJq-TV-33e" firstAttribute="top" secondItem="8Wj-Cp-Sa8" secondAttribute="bottom" constant="20" id="nnb-Xh-ZBw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SeS-CN-i1E" secondAttribute="trailing" id="wCv-AD-0Fb"/>
+                            <constraint firstItem="SeS-CN-i1E" firstAttribute="top" secondItem="vWC-9l-FEH" secondAttribute="bottom" constant="15" id="zSi-Bq-nij"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--生成二维码-->
@@ -34,12 +35,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入文字，并点击空白区域生成二维码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeU-AH-2KD">
+                                <rect key="frame" x="16" y="95" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="x97-o3-pS8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jeU-AH-2KD" firstAttribute="leading" secondItem="DRF-bC-ztG" secondAttribute="leadingMargin" id="CbW-mW-pn5"/>
                             <constraint firstItem="GnR-YQ-JsG" firstAttribute="centerX" secondItem="DRF-bC-ztG" secondAttribute="centerX" id="DxD-C6-Dhu"/>
+                            <constraint firstItem="jeU-AH-2KD" firstAttribute="top" secondItem="mwf-tb-XEZ" secondAttribute="bottom" constant="31" id="Jlr-Cd-QHq"/>
                             <constraint firstItem="Dgj-bU-Lrj" firstAttribute="centerX" secondItem="DRF-bC-ztG" secondAttribute="centerX" id="QAA-qB-bh0"/>
                             <constraint firstItem="Dgj-bU-Lrj" firstAttribute="top" secondItem="mwf-tb-XEZ" secondAttribute="bottom" constant="80" id="gZ8-2Z-zDP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jeU-AH-2KD" secondAttribute="trailing" id="j5K-ZP-N1x"/>
                             <constraint firstItem="GnR-YQ-JsG" firstAttribute="top" secondItem="Dgj-bU-Lrj" secondAttribute="bottom" constant="30" id="yHn-24-yr5"/>
                         </constraints>
                     </view>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D4D02ED1D7EAA4F0003930C /* QRCodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D02EC1D7EAA4F0003930C /* QRCodeTool.m */; };
+		2D541C3D1D7FDDE9001DA71A /* WKWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D541C3C1D7FDDE9001DA71A /* WKWebViewVC.m */; };
+		2D541C3F1D7FEFB7001DA71A /* WKWebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D541C3E1D7FEFB7001DA71A /* WKWebViewVC.xib */; };
 		2D8BF34A1D7D0848005306FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF3491D7D0848005306FF /* main.m */; };
 		2D8BF34D1D7D0848005306FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BF34C1D7D0848005306FF /* AppDelegate.m */; };
 		2D8BF3531D7D0848005306FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8BF3511D7D0848005306FF /* Main.storyboard */; };
@@ -45,6 +47,9 @@
 		2D4D02EB1D7EAA4F0003930C /* QRCodeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeTool.h; sourceTree = "<group>"; };
 		2D4D02EC1D7EAA4F0003930C /* QRCodeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeTool.m; sourceTree = "<group>"; };
 		2D4D02EE1D7EC82A0003930C /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		2D541C3B1D7FDDE9001DA71A /* WKWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewVC.h; sourceTree = "<group>"; };
+		2D541C3C1D7FDDE9001DA71A /* WKWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewVC.m; sourceTree = "<group>"; };
+		2D541C3E1D7FEFB7001DA71A /* WKWebViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWebViewVC.xib; sourceTree = "<group>"; };
 		2D8BF3451D7D0848005306FF /* 二维码.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "二维码.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8BF3491D7D0848005306FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D8BF34B1D7D0848005306FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -254,6 +259,9 @@
 				2D8BF3921D7D0B64005306FF /* ScanQRCodeVC.h */,
 				2D8BF3931D7D0B64005306FF /* ScanQRCodeVC.m */,
 				2D8BF3991D7D0E3A005306FF /* ScanQRCodeVC.storyboard */,
+				2D541C3B1D7FDDE9001DA71A /* WKWebViewVC.h */,
+				2D541C3C1D7FDDE9001DA71A /* WKWebViewVC.m */,
+				2D541C3E1D7FEFB7001DA71A /* WKWebViewVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 				2D8BF3551D7D0848005306FF /* Assets.xcassets in Resources */,
 				2D8BF3981D7D0E28005306FF /* DetectorQRCodeVC.storyboard in Resources */,
 				2D8BF39A1D7D0E3A005306FF /* ScanQRCodeVC.storyboard in Resources */,
+				2D541C3F1D7FEFB7001DA71A /* WKWebViewVC.xib in Resources */,
 				2D8BF3531D7D0848005306FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +429,7 @@
 				2D8BF3941D7D0B64005306FF /* ScanQRCodeVC.m in Sources */,
 				2D8BF38E1D7D0B2C005306FF /* GeneratorQRCodeVC.m in Sources */,
 				2D4D02ED1D7EAA4F0003930C /* QRCodeTool.m in Sources */,
+				2D541C3D1D7FDDE9001DA71A /* WKWebViewVC.m in Sources */,
 				2D8BF3911D7D0B54005306FF /* DetectorQRCodeVC.m in Sources */,
 				2D8BF34A1D7D0848005306FF /* main.m in Sources */,
 				2D8BF39D1D7D5548005306FF /* Foundation+Log.m in Sources */,
@@ -564,7 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "二维码/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chenxu.---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -576,7 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "二维码/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chenxu.---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
