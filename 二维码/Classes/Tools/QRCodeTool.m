@@ -143,8 +143,9 @@ single_implementation(QRCodeTool)
     
     // 3.1 设置二维码可以识别的码制
     // 设置输出的元数据的类型，必须要在输出添加到会话之后，否则会崩溃
-    // output.availableMetadataObjectTypes 或者 AVMetadataObjectTypeQRCode
-    self.output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+    // 二维码： AVMetadataObjectTypeQRCode，其余为条形码
+    //设置扫码支持的编码格式(如下设置条形码和二维码兼容)
+    self.output.metadataObjectTypes = @[AVMetadataObjectTypeCode128Code,AVMetadataObjectTypeUPCECode,AVMetadataObjectTypeCode39Code,AVMetadataObjectTypeCode39Mod43Code,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode93Code,AVMetadataObjectTypePDF417Code,AVMetadataObjectTypeQRCode,AVMetadataObjectTypeAztecCode,AVMetadataObjectTypeInterleaved2of5Code,AVMetadataObjectTypeITF14Code,AVMetadataObjectTypeDataMatrixCode];
     // 设置扫描的兴趣区域
     [self setRectInterest:interestRect];
     
@@ -276,7 +277,7 @@ single_implementation(QRCodeTool)
 - (void)setRectInterest:(CGRect)originRect{
     // 设置扫描 的兴趣区域
     // metadataoutputs坐标系 CGRectMake(0, 0, 1, 1)  取值范围：0.0 - 1.0
-    // metadataoutputs坐标系 以右上角为0 0 类似于横屏，x和y互换，宽高互换
+    // metadataoutputs坐标系 是横屏状态下的坐标系（图片的原始坐标），相当于以竖屏下的右上角为原点，x和y互换，宽高互换
     // 需要把previewlayer坐标系中的rect转为metadataoutputs坐标系中的rect ，下面有两种方法
     // 法一：自己计算
     CGRect bounds = [UIScreen mainScreen].bounds;
