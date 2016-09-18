@@ -12,17 +12,30 @@
 @interface GeneratorQRCodeVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
 @property (weak, nonatomic) IBOutlet UITextView *inputTV;
+@property (weak, nonatomic) IBOutlet UIButton *centerImageBtn;
+@property (nonatomic, strong) UIImage *centerImage;
 
 @end
 
 @implementation GeneratorQRCodeVC
+- (void)viewDidLoad{
+    [super viewDidLoad];
+
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.inputTV endEditing:YES];
     NSString *inputString = self.inputTV.text ? self.inputTV.text: @"";
-    UIImage *centerImage = [UIImage imageNamed:@"erha.png"];
-    self.qrCodeImageView.image = [QRCodeTool generatorQRCode:inputString centerImage:centerImage];
+    self.qrCodeImageView.image = [QRCodeTool generatorQRCode:inputString centerImage:self.centerImage];
     
+}
+- (IBAction)changeCenterImage:(UIButton*)btn {
+    btn.selected = !btn.selected;
+    if (btn.selected == YES) {
+        self.centerImage = [UIImage imageNamed:@"lingling.png"];
+    }else{
+        self.centerImage = [UIImage imageNamed:@"me.png"];
+    }
 }
 
 @end

@@ -44,6 +44,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaq-87-nk2">
+                                <rect key="frame" x="165" y="498" width="46" height="30"/>
+                                <state key="normal" title="我"/>
+                                <state key="selected" title="灵灵"/>
+                                <connections>
+                                    <action selector="changeCenterImage:" destination="hMB-2d-SSJ" eventType="touchUpInside" id="pbV-71-0KH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -59,6 +67,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="centerImageBtn" destination="vaq-87-nk2" id="wNi-Ql-RiN"/>
                         <outlet property="inputTV" destination="GnR-YQ-JsG" id="U3o-ep-Tgv"/>
                         <outlet property="qrCodeImageView" destination="Dgj-bU-Lrj" id="9Eu-WK-OXj"/>
                     </connections>
